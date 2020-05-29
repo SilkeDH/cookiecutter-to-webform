@@ -1,0 +1,14 @@
+{
+    "git_base_url": "https://github.com/deephdc",
+    "project_name": "",
+    "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-','_') }}",
+    "author_name": "",
+    "author_email": "",
+    "description": "",
+    "app_version": "0.0.1",
+    "open_source_license": ["MIT", "Apache 2.0", "BSD-3-Clause", "No license file"],
+    "dockerhub_user": "deephdc",
+    "docker_baseimage": "tensorflow/tensorflow",
+    "baseimage_cpu_tag": "1.14.0-py3",
+    "baseimage_gpu_tag": "1.14.0-gpu-py3"
+}
