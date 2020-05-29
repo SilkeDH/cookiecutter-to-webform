@@ -4,13 +4,26 @@ import shutil
 import json
 
 def read_json():
-    f = open('app/files/cookiecutter.json', "r")
+    cookie_json_dir = 'app/files/cookiecutter.json'
+    help_json_dir = 'app/files/help.json'
+    f = open(cookie_json_dir, "r")
     # Reading from file
-    data = json.loads(f.read())
-    data_vals = []
-    for key, value in data.items():
-        data_vals.append([key,value])
-    return data_vals
+    cookie_data = json.loads(f.read())
+    data = []
+
+    # If help.json exists then combine it with the cookiecutter placeholders
+    if os.path.exists(help_json_dir):
+        f = open(help_json_dir, "r")
+        help_data = json.loads(f.read())
+        for key, dsc in help_data.items():
+            data.append([key, dsc, cookie_data[key]])
+
+    # If not, just use the plain cookiecutter.json file
+    else:
+        for key, value in cookie_data.items():
+            data.append([key,value])
+
+    return data
 
 
 def call_cookiecutter(form):

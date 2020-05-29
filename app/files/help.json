@@ -1,0 +1,13 @@
+{
+    "git_base_url": "In order to build the project we need to host the files in a repository. Please provide the URL where the new repositories should be hosted. For example: https://github.com/deephdc, https://git.scc.kit.edu/deep or somewhere else:",
+    "project_name": "Please provide a short name of your project. The name will be also the name of the repositories that will be created in the link given above. For example: https://github.com/deephdc/projectname. The package will also be named like that:",
+    "author_name": "Please provide the name(s) of the author(s). If there is more than one author separate the names by comma:",
+    "author_email": "Please provide the email(s) of the author(s). If there is more than one email separate the emails by comma:",
+    "description": "Please provide a short description of the project:",
+    "app_version": "Please provide the version of the application. The version should contain 3 numbers in the following format X.Y.Z where correspond to Major.Minor.Patch. For example: 1.0.0 or 2.1.3:",
+    "open_source_license": "Please specify the type of license of the application. The default one is MIT. If you are not sure which license you should choose, please go to the following website https://opensource.org/licenses",
+    "dockerhub_user": "Please provide your user account at hub.docker.com. The user account is needed in order to generate the docker images of your project. For example: 'deephdc' in https://hub.docker.com/u/deephdc",
+    "docker_baseimage": "Please provide the Docker image your Dockerfile starts from, without the tag. For example if you want to work with tensorflow, the docker image would be: tensorflow/tensorflow. If it is Pytorch, then pytorch/pytorch. If you need more information go to https://hub.docker.com/r/tensorflow/tensorflow.",
+    "baseimage_cpu_tag": "Please provide the CPU tag from the docker image. The image must support python3. The base image tensorflow/tensorflow from above has different tags corresponding to its versions. An example of one is tensorflow/tensorflow:1.14.0-py3, therefore the tag is 1.14.0-py3: ",
+    "baseimage_gpu_tag": "Please provide the GPU tag from the docker image if available. As above, some images have separate images for supporting gpu or cpu. For example tensorflow/tensorflow:1.14.0-gpu-py3. If none is available, provide the tag from above:  "
+}

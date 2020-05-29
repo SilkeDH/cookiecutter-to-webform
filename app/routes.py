@@ -1,8 +1,7 @@
 from flask import render_template, request, Response
 from app.form2cookie import call_cookiecutter, read_json
-import os
 from app import app
-
+import os
 
 @app.route('/')
 def my_form():
