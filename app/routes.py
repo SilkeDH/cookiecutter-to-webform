@@ -1,5 +1,6 @@
 from flask import render_template, request, Response
 from app.form2cookie import call_cookiecutter, read_json
+import app.config as cfg
 from app import app
 import os
 
@@ -12,12 +13,12 @@ def my_form():
 def cookieweb():
     result = request.form
     call_cookiecutter(result)
-    with open("deep_project.zip", 'rb') as f:
+    with open(cfg.zip_name + ".zip", 'rb') as f:
         data = f.readlines()
-    os.remove("deep_project.zip")
+    os.remove(cfg.zip_name + ".zip")
     return Response(data, headers={
         'Content-Type': 'application/zip',
-        'Content-Disposition': 'attachment; filename=%s;' % "deep_project.zip"
+        'Content-Disposition': 'attachment; filename=%s;' % cfg.zip_name + ".zip"
         })
 
 if __name__ == '__main__':
