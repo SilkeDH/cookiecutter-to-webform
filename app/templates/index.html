@@ -111,7 +111,15 @@
           {{ dsc }}
         <br>
           {% if key != "Press Enter and configure" %}
-            <br><input class="input" type="text" name = "{{ key }}" placeholder = "{{ place }}"><br>
+            {% if place is not string %}
+              <select name="{{ key }}" class="selectpicker form-control">
+                {% for o in place %}
+                <option value="{{ o }}">{{ o }}</option>
+                {% endfor %}
+              </select>
+            {% else %}
+               <br><input class="input" type="text" name = "{{ key }}" placeholder = "{{ place }}"><br>
+            {% endif %}
           {% endif %}
         <br>
         {% endfor %}
