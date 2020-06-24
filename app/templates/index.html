@@ -109,28 +109,34 @@
         {% if data[0]|length == 3 %}
         {% for key, dsc, place in data %}
           {{ dsc }}
-        <br>
           {% if key != "Press Enter and configure" %}
             {% if place is not string %}
               <select name="{{ key }}" class="selectpicker form-control">
                 {% for o in place %}
                 <option value="{{ o }}">{{ o }}</option>
                 {% endfor %}
-              </select>
+              </select><br>
             {% else %}
                <br><input class="input" type="text" name = "{{ key }}" placeholder = "{{ place }}"><br>
             {% endif %}
           {% endif %}
         <br>
         {% endfor %}
-
         {% else %}
         {% for input,key in data %}
           {{ input }}
-        <br>
           {% if key != "Press Enter and configure" %}
-            <br><input class= "input" type="text" name = "{{ input }}" placeholder = "{{ key }}" ><br>
+            {% if key is not string %}
+              <select name="{{ input }}" class="selectpicker form-control">
+                {% for o in key %}
+                <option value="{{ o }}">{{ o }}</option>
+                {% endfor %}
+              </select><br>
+            {% else %}
+               <br><input class="input" type="text" name = "{{ input }}" placeholder = "{{ key }}"><br>
+            {% endif %}
           {% endif %}
+        <br>
         {% endfor %}
         {% endif %}
         <input class = "button" type="submit"/>
