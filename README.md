@@ -22,12 +22,14 @@ then go to `http://0.0.0.0:5001/` to find the webform.
 
 To determine the cookiecutter template to be transformed as a webform, first you need to specify where it is located. For that the [config.py](https://github.com/SilkeDH/cookiecutter-to-webform/blob/master/app/config.py) file must be changed. The following parameters must need to be changed in order to find the template:
 
-| Parameter name  | Description | Mandatory (Y/N) | Default Value 
-| -------------- | ------------- |------------- |------------- |
-| git_repo_download_url | Download url of git repo containing the cookiecutter json file. | Y | N/A
-| git_repo_url | Normal url of git repo containing the cookiecutter json file. | Y | N/A
-| branch_name | Branch name of the git repo containing the cookiecutter json file.  | Y | N/A
-| cookiecutter_template | Name of the cookiecutter .json file. | Y | N/A
+| Parameter name  | Description | Mandatory (Y/N) | 
+| -------------- | ------------- |------------- 
+| git_repo_download_url | Download url of git repo containing the cookiecutter json file. | Y 
+| git_repo_url | Normal url of git repo containing the cookiecutter json file. | Y 
+| branch_name | Branch name of the git repo containing the cookiecutter json file.  | Y 
+| cookiecutter_template | Name of the cookiecutter .json file. | Y 
+
+The initial configuration provided in the project reads the cookiecutter json file for the [Deep Hybrid Data Cloud Project](https://github.com/indigo-dc/cookiecutter-data-science/).
 
 If you want a "cleaner" webform, e.g. add a better description, you can also manually add a "help" file. This file must have the same name as you cookiecutter json file with the suffix "-help" to be found. For example, if you template is called `cookiecutter.json`, the help file name would be `cookiecutter-help.json`.
 
@@ -35,13 +37,15 @@ If you want a "cleaner" webform, e.g. add a better description, you can also man
 
 The application works as following:
 
-
+<p align="center">
+<img src="https://github.com/SilkeDH/cookiecutter-to-webform/blob/master/img/cookieflowchart.png" width="400"/>
+</p>
 
 The functions showed in the flowchart are called in the [routes.py](https://github.com/SilkeDH/cookiecutter-to-webform/blob/master/app/routes.py) file.
 
 # Notes
 
-This application only downloads the cookiecutter json file. If it is manually provided in the files, it will be deleted. This is because if the cookiecutter json file is modified in the git repository, the changes will be automatically visible in the webform.
+- This application only downloads the cookiecutter json file. If it is manually provided in the files, it will be deleted. This is because if the cookiecutter json file is modified in the git repository, the changes will be automatically visible in the webform.
 
 
 
